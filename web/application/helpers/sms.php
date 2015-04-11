@@ -126,10 +126,11 @@ class sms_Core {
         //TODO: hier waere der punkt um die position rauszufinden
 
 
-        $sendToGoogle = urlencode($message);
-        $geoapiUrl = 'http://maps.googleapis.com/maps/api/geocode/json?address='.$message.'&sensor=false&region=de';
+        //$sendToGoogle = urlencode($message);
+       // $geoapiUrl = 'http://maps.googleapis.com/maps/api/geocode/json?address='.$message.'&sensor=false&region=de';
         //$googleResponse = file_get_contents($geoapiUrl);
         //$response = json_decode($googleResponse, true);
+        $response['status'] = 'FALSCH';
         if ( $response['status'] == 'OK' )
         {
 
@@ -139,13 +140,14 @@ class sms_Core {
             //$formatted_address = $response['results'][0]['formatted_address']; // not used
 
             // verify if data is complete
+            $lat = false;
+            $lon = false;
+            $formatted_address = false;
             if($lat && $lon && $formatted_address){
                 $latlan = 1;
             } else {
                 $latlan = 0;
             }
-        }else{
-            $latlan = 0;
         }
         
 
