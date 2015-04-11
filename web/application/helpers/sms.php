@@ -128,15 +128,15 @@ class sms_Core {
 
         $sendToGoogle = urlencode($message);
         $geoapiUrl = 'http://maps.googleapis.com/maps/api/geocode/json?address='.$message.'&sensor=false&region=de';
-        $googleResponse = file_get_contents($geoapiUrl);
-        $response = json_decode($googleResponse, true);
+        //$googleResponse = file_get_contents($geoapiUrl);
+        //$response = json_decode($googleResponse, true);
         if ( $response['status'] == 'OK' )
         {
 
             //$sms->latitude =  $response['results'][0]['geometry']['location']['lat'];
             //$sms->longitude = $response['results'][0]['geometry']['location']['lng'];
 
-            $formatted_address = $response['results'][0]['formatted_address']; // not used
+            //$formatted_address = $response['results'][0]['formatted_address']; // not used
 
             // verify if data is complete
             if($lat && $lon && $formatted_address){
