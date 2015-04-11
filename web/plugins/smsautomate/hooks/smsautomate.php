@@ -171,7 +171,9 @@ class smsautomate {
 		{
 			$categories = explode(",", $message_elements[6]);
 		}
-		
+
+
+        // Hier eventuell lat lang reinpopeln
 		
 		//for testing:
 		/*
