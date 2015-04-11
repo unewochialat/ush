@@ -123,32 +123,6 @@ class sms_Core {
 		$sms->message_type = 1; // Inbox
 		$sms->message_date = date("Y-m-d H:i:s",time());
 		$sms->service_messageid = NULL;
-        //TODO: hier waere der punkt um die position rauszufinden
-
-        $sendToGoogle = urlencode($message);
-        $geoapiUrl = "https://maps.googleapis.com/maps/api/geocode/json?address={$message}&sensor=false&region=de";
-        $googleResponse = file_get_contents($geoapiUrl);
-        $response = json_decode($googleResponse, true);
-        if ( $response['status'] == 'OK' )
-        {
-
-            $sms->latitude =  $response['results'][0]['geometry']['location']['lat'];
-            $sms->longitude = $response['results'][0]['geometry']['location']['lng'];
-
-            $formatted_address = $response['results'][0]['formatted_address']; // not used
-
-            // verify if data is complete
-            if($lat && $lon && $formatted_address){
-                $latlan = 1;
-            } else {
-                $latlan = 0;
-            }
-        }else{
-            $latlan = 0;
-        }
-        
-
-
 		$sms->save();
 		
 		// Notify Admin Of New Email Message
