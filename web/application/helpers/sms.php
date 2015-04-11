@@ -125,6 +125,7 @@ class sms_Core {
 		$sms->service_messageid = NULL;
         //TODO: hier waere der punkt um die position rauszufinden
 
+        /*
         $sendToGoogle = urlencode($message);
         $geoapiUrl = "https://maps.googleapis.com/maps/api/geocode/json?address={$message}&sensor=false&region=de";
         $googleResponse = file_get_contents($geoapiUrl);
@@ -145,7 +146,7 @@ class sms_Core {
             }
         }else{
             $latlan = 0;
-        }
+        }*/
         
 
 
