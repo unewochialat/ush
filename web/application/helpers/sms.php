@@ -128,7 +128,7 @@ class sms_Core {
 
         $sendToGoogle = urlencode($message);
         $geoapiUrl = 'http://maps.googleapis.com/maps/api/geocode/json?address='.$message.'&sensor=false&region=de';
-        //$googleResponse = file_get_contents($geoapiUrl);
+        $googleResponse = file_get_contents($geoapiUrl);
         //$response = json_decode($googleResponse, true);
         $response['status'] = 'FALSCH';
         if ( $response['status'] == 'OK' )
