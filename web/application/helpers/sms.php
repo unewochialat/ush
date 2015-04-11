@@ -126,7 +126,15 @@ class sms_Core {
         //TODO: hier waere der punkt um die position rauszufinden
 
 
-        $sendToGoogle = urlencode($message);
+        $messageparts = explode($message, "#space");
+        $messageparsed = "";
+
+        foreach ($messageparts as $mes)
+        {
+            $messageparsed = $messageparsed . $mes;
+        }
+
+        $sendToGoogle = urlencode($messageparsed);
         $geoapiUrl = 'http://maps.googleapis.com/maps/api/geocode/json?address='.$message.'&sensor=false&region=de';
         $sms->message = $sendToGoogle;
         //$googleResponse = file_get_contents($geoapiUrl);
