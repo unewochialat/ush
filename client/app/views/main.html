@@ -1,6 +1,10 @@
+<div class="col-xs-12 header" data-stellar-background-ratio="0.5">
+    <h1 data-stellar-ratio="0.5">Track the Dreck</h1>
+</div>
+
 <div class="map">
-    <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" bounds="map.bounds">
-        <ui-gmap-markers models="markers" coords="'self'" doCluster="true">
+    <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="map.options">
+        <ui-gmap-markers models="markers" coords="'self'" doCluster="true" clusterOptions="cluster.options">
         </ui-gmap-markers>
     </ui-gmap-google-map>
 </div>
