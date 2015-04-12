@@ -270,14 +270,15 @@ angular.module('spaceappsApp')
                     lon = incident.locationlongitude;
                     title = incident.incidenttitle;
 
-                    $log.log(title);
-
                     if (!!lat) {
                         $scope.markers.push({
                             id: index,
                             latitude: lat,
                             longitude: lon,
-                            title: title
+                            options: {
+                                title: title,
+                                labelContent: title
+                            }
                         });
                     }
                 });
