@@ -258,20 +258,26 @@ angular.module('spaceappsApp')
 
             uiGmapGoogleMapApi.then(function () {
 
+                var incident;
                 var lat, lon;
                 var title;
 
                 angular.forEach(locations, function (location, index) {
 
-                    lat = location.incident.locationlatitude;
-                    lon = location.incident.locationlongitude;
-                    title = location.incident.locationname;
+                    incident = location.incident;
+
+                    lat = incident.locationlatitude;
+                    lon = incident.locationlongitude;
+                    title = incident.incidenttitle;
+
+                    $log.log(title);
 
                     if (!!lat) {
                         $scope.markers.push({
                             id: index,
                             latitude: lat,
-                            longitude: lon
+                            longitude: lon,
+                            title: title
                         });
                     }
                 });
